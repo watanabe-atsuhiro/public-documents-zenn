@@ -1,0 +1,22 @@
+{
+  "name": "public-documents-zenn",
+  "version": "1.0.0",
+  "description": "public documtens wrote at zenn",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/watanabe-atsuhiro/public-documents-zenn.git"
+  },
+  "author": "watanabe_atsuhiro",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/watanabe-atsuhiro/public-documents-zenn/issues"
+  },
+  "homepage": "https://github.com/watanabe-atsuhiro/public-documents-zenn#readme",
+  "dependencies": {
+    "zenn-cli": "^0.1.158"
+  }
+}
