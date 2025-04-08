@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Add multi tag with condition
+
+Parameters:
+  Env:
+    Type: String
+    AllowedValues:
+      - dev
+      - stg
+      - prod
+    Default: dev
+
+Conditions:
+  IsDev: !Equals [!Ref Env, dev]
+
+Resources:
+  S3Hosting:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Sub "${Env}-s3-bucket-${AWS::Region}"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: true
+        BlockPublicPolicy: true
+        IgnorePublicAcls: true
+        RestrictPublicBuckets: true
+      Tags:
+        !If
+          - IsDev
+          - - !Ref AWS::NoValue
+          - - Key: tag1
+              Value: value1
+            - Key: tag2
+              Value: value2
+            - Key: tag3
+              Value: value3
